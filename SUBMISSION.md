@@ -34,9 +34,9 @@ issue category) remain; no throughput-optimised server was tested. Code, data, a
 
 ## Links
 
-- GitHub repository (code, notebooks, README with reproduction steps): <GITHUB_URL>
-- Hugging Face model collection (adapters, logs, results): <MODEL_COLLECTION_URL>
-- Hugging Face dataset collection (v1 and v2 data): <DATASET_COLLECTION_URL>
+- GitHub repository (code, notebooks, README with reproduction steps): https://github.com/iamvisheshsrivastava/lexsi-tiny-aya-extraction
+- Hugging Face model collection (adapters, logs, results): https://huggingface.co/collections/iamvisheshsrivastava/lexsi-extraction-models-6af63fe99fd7b670fffee605
+- Hugging Face dataset collection (v1 and v2 data): https://huggingface.co/collections/iamvisheshsrivastava/lexsi-extraction-datasets-6af63feafc001bd45620389e
 - Write-up: the repository README (`README.md`); the model repo card carries the same text.
 
 ## Problem statement
