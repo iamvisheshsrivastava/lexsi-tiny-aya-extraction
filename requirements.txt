@@ -1,0 +1,13 @@
+# data, evaluation and tests (Python 3.11+)
+jsonschema
+requests
+python-dotenv
+pytest
+curatorkit
+auditkit
+# GPU training and evaluation (Kaggle T4 notebook installs these itself)
+aligntune
+peft
+bitsandbytes
+accelerate
+huggingface_hub

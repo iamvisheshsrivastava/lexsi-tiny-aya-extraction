@@ -1,0 +1,24 @@
+{
+  "model": "anthropic/claude-haiku-5.5",
+  "prompt_mode": "short",
+  "overall": {
+    "n": 120,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 0.0,
+    "field_precision": 0.07529843893480258,
+    "field_recall": 0.07706766917293233,
+    "field_f1": 0.07617278216442173,
+    "exact_match_rate": 0.0
+  },
+  "usage": {
+    "prompt_tokens": 19595,
+    "completion_tokens": 52709,
+    "cost": 0.028314000000000006,
+    "seconds": 475.2303159236908
+  },
+  "tokens_per_doc": {
+    "prompt": 163.29166666666666,
+    "completion": 439.2416666666667
+  },
+  "cost_per_1000_docs_usd": 0.23595000000000005
+}

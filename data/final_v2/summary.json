@@ -1,0 +1,23 @@
+{
+  "train": 510,
+  "val": 57,
+  "test_v2": 120,
+  "test_v1": 24,
+  "test_candidates_dropped_as_near_duplicates": 0,
+  "test_v2_by_language": {
+    "de": 30,
+    "en": 30,
+    "fr": 30,
+    "hi": 30
+  },
+  "test_v2_by_doc_type": {
+    "support_ticket": 61,
+    "invoice": 59
+  },
+  "train_by_language": {
+    "fr": 141,
+    "en": 151,
+    "de": 138,
+    "hi": 80
+  }
+}

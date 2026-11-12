@@ -1,0 +1,2 @@
+google/gemini-2.5-flash-lite       short valid 0.99 schema 0.00 F1 0.013 exact 0.00 | 104+132 tok/doc $0.063/1k docs (spent $0.008)
+google/gemini-2.5-flash-lite       full  valid 1.00 schema 1.00 F1 0.829 exact 0.18 | 266+114 tok/doc $0.072/1k docs (spent $0.016)

@@ -1,0 +1,79 @@
+{
+  "pipeline_config_hash": "c6fbeff5fb46f844",
+  "run_timestamp": "2026-11-12T18:31:52.908713Z",
+  "source_files": [],
+  "stage_counts": {
+    "JSONLReader": {
+      "output_count": 577,
+      "rejected_count": 0
+    },
+    "SchemaGate": {
+      "input_count": 577,
+      "output_count": 577,
+      "probe_recovered": 0,
+      "rejected_count": 0
+    },
+    "ExactDeduplicator": {
+      "input_count": 577,
+      "output_count": 577
+    },
+    "MinHashDeduplicator": {
+      "input_count": 577,
+      "output_count": 567
+    },
+    "TextCleaner": {
+      "input_count": 567,
+      "output_count": 567
+    }
+  },
+  "rejected_breakdown": {},
+  "dedup_stats": {
+    "near_duplicates_removed": 10,
+    "surviving_count": 567
+  },
+  "minhash_threshold": 0.85,
+  "sampler_stats": null,
+  "token_stats": {
+    "total_prompt_tokens": 0,
+    "total_completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "wall_clock_seconds": 12.75,
+  "tool_versions": {
+    "curatorkit": "0.1.23",
+    "python": "3.11.9"
+  },
+  "diversity_stats": null,
+  "diagnostic_stats": null,
+  "diagnostic_files": [],
+  "provenance": {
+    "schema": "lexsi.provenance/1",
+    "library": "curatorkit",
+    "version": "0.1.23",
+    "git_sha": null,
+    "created_at": "2026-11-12T18:31:52Z",
+    "base_model": null,
+    "method": "curate",
+    "inputs": [
+      {
+        "kind": "dataset",
+        "ref": "C:\\Users\\sriva\\Desktop\\Projects\\Personal Repositories\\kaggle_competitions\\competitions\\lexsi-ai-safety-hackathon\\data\\lexsi_extraction_v2_instructions.jsonl",
+        "config": null,
+        "provenance": null
+      }
+    ],
+    "params": {
+      "generator_model": null,
+      "judge_model": null,
+      "grpo_scoring_model": null,
+      "export_formats": [
+        "alpaca"
+      ],
+      "output_split": {
+        "train": 0.9,
+        "val": 0.1
+      },
+      "pipeline_config_hash": "c6fbeff5fb46f844"
+    }
+  }
+}

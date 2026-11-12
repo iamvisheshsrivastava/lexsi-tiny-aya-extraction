@@ -1,0 +1,28 @@
+call 1/24: kept 5, rejected 0, spent $0.0002
+call 2/24: kept 10, rejected 0, spent $0.0004
+call 3/24: kept 15, rejected 0, spent $0.0006
+call 4/24: kept 20, rejected 0, spent $0.0008
+call 5/24: kept 24, rejected 1, spent $0.0010
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 6/24: kept 29, rejected 1, spent $0.0030
+call 7/24: kept 29, rejected 6, spent $0.0032
+call 8/24: kept 29, rejected 11, spent $0.0038
+  attempt 1 failed: KeyError: 'items'
+call 9/24: kept 34, rejected 11, spent $0.0040
+call 10/24: kept 39, rejected 11, spent $0.0042
+call 11/24: kept 44, rejected 11, spent $0.0048
+call 12/24: kept 49, rejected 11, spent $0.0053
+call 13/24: kept 54, rejected 11, spent $0.0058
+call 14/24: kept 54, rejected 16, spent $0.0062
+call 15/24: kept 59, rejected 16, spent $0.0064
+  attempt 1 failed: JSONDecodeError: Expecting property name enclosed in double quotes: line 37 column 26 (char 1661)
+call 16/24: kept 64, rejected 16, spent $0.0084
+call 17/24: kept 69, rejected 16, spent $0.0086
+call 18/24: kept 74, rejected 16, spent $0.0088
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 19/24: kept 79, rejected 16, spent $0.0108
+call 20/24: kept 79, rejected 21, spent $0.0110
+call 21/24: kept 84, rejected 21, spent $0.0112
+call 22/24: kept 89, rejected 21, spent $0.0115
+call 23/24: kept 94, rejected 21, spent $0.0121
+call 24/24: kept 99, rejected 21, spent $0.0123

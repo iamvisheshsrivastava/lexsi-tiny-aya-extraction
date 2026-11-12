@@ -1,0 +1,10 @@
+{
+  "n_documents": 120,
+  "mean_f1_a": 0.7357332260389536,
+  "mean_f1_b": 0.8156359601870438,
+  "difference_b_minus_a": 0.07990273414809013,
+  "ci95_low": 0.05544422188578534,
+  "ci95_high": 0.10524795129477792,
+  "documents_b_better": 76,
+  "documents_a_better": 25
+}

@@ -1,0 +1,78 @@
+{
+  "model": "CohereLabs/tiny-aya-global",
+  "adapter": "out/adapter",
+  "split": "test",
+  "prompt": "short",
+  "stop_at_brace": true,
+  "outputs_at_token_limit": 0,
+  "n_documents": 120,
+  "overall": {
+    "n": 120,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 0.9333333333333333,
+    "field_precision": 0.813780260707635,
+    "field_recall": 0.8214285714285714,
+    "field_f1": 0.8175865294667914,
+    "exact_match_rate": 0.15
+  },
+  "tokens_per_second": 41.6301597304804,
+  "seconds": 232.6198136806488,
+  "by_language": {
+    "de": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.8333333333333334,
+      "field_precision": 0.8257575757575758,
+      "field_recall": 0.8257575757575758,
+      "field_f1": 0.8257575757575757,
+      "exact_match_rate": 0.13333333333333333
+    },
+    "en": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9666666666666667,
+      "field_precision": 0.7756653992395437,
+      "field_recall": 0.7756653992395437,
+      "field_f1": 0.7756653992395436,
+      "exact_match_rate": 0.06666666666666667
+    },
+    "fr": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9666666666666667,
+      "field_precision": 0.8426966292134831,
+      "field_recall": 0.8490566037735849,
+      "field_f1": 0.8458646616541353,
+      "exact_match_rate": 0.13333333333333333
+    },
+    "hi": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9666666666666667,
+      "field_precision": 0.8107142857142857,
+      "field_recall": 0.8345588235294118,
+      "field_f1": 0.822463768115942,
+      "exact_match_rate": 0.26666666666666666
+    }
+  },
+  "by_doc_type": {
+    "support_ticket": {
+      "n": 61,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9180327868852459,
+      "field_precision": 0.8333333333333334,
+      "field_recall": 0.8433734939759037,
+      "field_f1": 0.8383233532934132,
+      "exact_match_rate": 0.16393442622950818
+    },
+    "invoice": {
+      "n": 59,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9491525423728814,
+      "field_precision": 0.7964912280701755,
+      "field_recall": 0.8021201413427562,
+      "field_f1": 0.7992957746478873,
+      "exact_match_rate": 0.13559322033898305
+    }
+  }
+}

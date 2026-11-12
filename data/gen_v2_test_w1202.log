@@ -1,0 +1,14 @@
+call 1/14: kept 5, rejected 0, spent $0.0002
+call 2/14: kept 10, rejected 0, spent $0.0005
+call 3/14: kept 15, rejected 0, spent $0.0006
+call 4/14: kept 18, rejected 2, spent $0.0008
+call 5/14: kept 23, rejected 2, spent $0.0011
+call 6/14: kept 28, rejected 2, spent $0.0012
+call 7/14: kept 28, rejected 7, spent $0.0014
+call 8/14: kept 32, rejected 8, spent $0.0020
+call 9/14: kept 37, rejected 8, spent $0.0035
+call 10/14: kept 42, rejected 8, spent $0.0037
+call 11/14: kept 47, rejected 8, spent $0.0045
+call 12/14: kept 52, rejected 8, spent $0.0047
+call 13/14: kept 56, rejected 9, spent $0.0052
+call 14/14: kept 61, rejected 9, spent $0.0054

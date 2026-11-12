@@ -1,0 +1,24 @@
+{
+  "model": "openai/gpt-5.4-nano",
+  "prompt_mode": "full",
+  "overall": {
+    "n": 24,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 1.0,
+    "field_precision": 0.9380952380952381,
+    "field_recall": 0.9292452830188679,
+    "field_f1": 0.933649289099526,
+    "exact_match_rate": 0.4166666666666667
+  },
+  "usage": {
+    "prompt_tokens": 5318,
+    "completion_tokens": 2169,
+    "cost": 0.003774850000000001,
+    "seconds": 44.034825801849365
+  },
+  "tokens_per_doc": {
+    "prompt": 221.58333333333334,
+    "completion": 90.375
+  },
+  "cost_per_1000_docs_usd": 0.1572854166666667
+}

@@ -1,0 +1,18 @@
+call 1/14: kept 5, rejected 0, spent $0.0004
+call 2/14: kept 6, rejected 4, spent $0.0007
+  attempt 1 failed: JSONDecodeError: Expecting value: line 51 column 20 (char 2113)
+call 3/14: kept 11, rejected 4, spent $0.0027
+call 4/14: kept 15, rejected 5, spent $0.0031
+call 5/14: kept 20, rejected 5, spent $0.0033
+call 6/14: kept 25, rejected 5, spent $0.0035
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 7/14: kept 29, rejected 6, spent $0.0055
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 8/14: kept 34, rejected 6, spent $0.0075
+call 9/14: kept 39, rejected 6, spent $0.0079
+call 10/14: kept 44, rejected 6, spent $0.0082
+call 11/14: kept 49, rejected 6, spent $0.0084
+  attempt 1 failed: KeyError: 'items'
+call 12/14: kept 54, rejected 6, spent $0.0086
+call 13/14: kept 59, rejected 6, spent $0.0088
+call 14/14: kept 63, rejected 7, spent $0.0090

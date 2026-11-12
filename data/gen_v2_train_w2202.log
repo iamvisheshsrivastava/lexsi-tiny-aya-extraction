@@ -1,0 +1,27 @@
+call 1/24: kept 4, rejected 1, spent $0.0002
+call 2/24: kept 9, rejected 1, spent $0.0003
+call 3/24: kept 14, rejected 1, spent $0.0006
+call 4/24: kept 15, rejected 5, spent $0.0008
+call 5/24: kept 20, rejected 5, spent $0.0010
+call 6/24: kept 25, rejected 5, spent $0.0013
+call 7/24: kept 29, rejected 6, spent $0.0015
+  attempt 1 failed: KeyError: 'items'
+call 8/24: kept 34, rejected 6, spent $0.0019
+call 9/24: kept 34, rejected 11, spent $0.0023
+call 10/24: kept 39, rejected 11, spent $0.0025
+call 11/24: kept 44, rejected 11, spent $0.0028
+  attempt 1 failed: JSONDecodeError: Unterminated string starting at: line 66 column 9 (char 2403)
+call 12/24: kept 44, rejected 16, spent $0.0048
+call 13/24: kept 49, rejected 16, spent $0.0051
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 14/24: kept 54, rejected 16, spent $0.0071
+call 15/24: kept 59, rejected 16, spent $0.0073
+call 16/24: kept 64, rejected 16, spent $0.0075
+call 17/24: kept 69, rejected 16, spent $0.0077
+call 18/24: kept 74, rejected 16, spent $0.0081
+call 19/24: kept 79, rejected 16, spent $0.0083
+call 20/24: kept 84, rejected 16, spent $0.0085
+call 21/24: kept 89, rejected 16, spent $0.0087
+call 22/24: kept 94, rejected 16, spent $0.0089
+call 23/24: kept 98, rejected 17, spent $0.0091
+call 24/24: kept 103, rejected 17, spent $0.0093

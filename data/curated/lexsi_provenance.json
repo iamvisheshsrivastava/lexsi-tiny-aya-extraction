@@ -1,0 +1,31 @@
+{
+  "schema": "lexsi.provenance/1",
+  "library": "curatorkit",
+  "version": "0.1.23",
+  "git_sha": null,
+  "created_at": "2026-11-07T22:18:23Z",
+  "base_model": null,
+  "method": "curate",
+  "inputs": [
+    {
+      "kind": "dataset",
+      "ref": "C:\\Users\\sriva\\Desktop\\Projects\\Personal Repositories\\kaggle_competitions\\competitions\\lexsi-ai-safety-hackathon\\data\\instructions.jsonl",
+      "config": null,
+      "provenance": null
+    }
+  ],
+  "params": {
+    "generator_model": null,
+    "judge_model": null,
+    "grpo_scoring_model": null,
+    "export_formats": [
+      "alpaca"
+    ],
+    "output_split": {
+      "train": 0.8,
+      "val": 0.1,
+      "test": 0.1
+    },
+    "pipeline_config_hash": "3beb99a5452066d0"
+  }
+}

@@ -1,0 +1,15 @@
+call 1/14: kept 5, rejected 0, spent $0.0002
+call 2/14: kept 10, rejected 0, spent $0.0004
+call 3/14: kept 15, rejected 0, spent $0.0006
+call 4/14: kept 20, rejected 0, spent $0.0013
+call 5/14: kept 25, rejected 0, spent $0.0015
+  attempt 1 failed: JSONDecodeError: Unterminated string starting at: line 4 column 15 (char 35)
+call 6/14: kept 28, rejected 2, spent $0.0037
+call 7/14: kept 30, rejected 5, spent $0.0038
+call 8/14: kept 35, rejected 5, spent $0.0041
+call 9/14: kept 40, rejected 5, spent $0.0048
+call 10/14: kept 45, rejected 5, spent $0.0050
+call 11/14: kept 50, rejected 5, spent $0.0052
+call 12/14: kept 53, rejected 7, spent $0.0055
+call 13/14: kept 56, rejected 9, spent $0.0057
+call 14/14: kept 61, rejected 9, spent $0.0059

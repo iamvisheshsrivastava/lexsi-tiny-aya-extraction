@@ -1,0 +1,47 @@
+call 1/50: kept 5, rejected 0, spent $0.0002
+call 2/50: kept 10, rejected 0, spent $0.0005
+call 3/50: kept 15, rejected 0, spent $0.0007
+call 4/50: kept 20, rejected 0, spent $0.0014
+call 5/50: kept 25, rejected 0, spent $0.0016
+call 6/50: kept 30, rejected 0, spent $0.0025
+call 7/50: kept 35, rejected 0, spent $0.0027
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 8/50: kept 40, rejected 0, spent $0.0062
+call 9/50: kept 45, rejected 0, spent $0.0063
+call 10/50: kept 50, rejected 0, spent $0.0066
+call 11/50: kept 55, rejected 0, spent $0.0068
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 12/50: kept 60, rejected 0, spent $0.0089
+call 13/50: kept 60, rejected 5, spent $0.0095
+call 14/50: kept 65, rejected 5, spent $0.0097
+call 15/50: kept 65, rejected 10, spent $0.0099
+call 16/50: kept 66, rejected 14, spent $0.0101
+call 17/50: kept 71, rejected 14, spent $0.0103
+call 18/50: kept 76, rejected 14, spent $0.0105
+call 19/50: kept 77, rejected 18, spent $0.0107
+call 20/50: kept 82, rejected 18, spent $0.0109
+call 21/50: kept 87, rejected 18, spent $0.0112
+call 22/50: kept 92, rejected 18, spent $0.0114
+call 23/50: kept 97, rejected 18, spent $0.0116
+call 24/50: kept 102, rejected 18, spent $0.0118
+call 25/50: kept 107, rejected 18, spent $0.0128
+call 26/50: kept 108, rejected 22, spent $0.0133
+call 27/50: kept 108, rejected 27, spent $0.0135
+call 28/50: kept 109, rejected 31, spent $0.0138
+call 29/50: kept 110, rejected 35, spent $0.0140
+call 30/50: kept 115, rejected 35, spent $0.0142
+call 31/50: kept 120, rejected 35, spent $0.0144
+call 32/50: kept 125, rejected 35, spent $0.0146
+call 33/50: kept 130, rejected 35, spent $0.0148
+call 34/50: kept 131, rejected 39, spent $0.0150
+call 35/50: kept 135, rejected 40, spent $0.0152
+call 36/50: kept 140, rejected 40, spent $0.0154
+call 37/50: kept 144, rejected 41, spent $0.0156
+call 38/50: kept 146, rejected 44, spent $0.0158
+call 39/50: kept 151, rejected 44, spent $0.0160
+call 40/50: kept 156, rejected 44, spent $0.0165
+call 41/50: kept 161, rejected 44, spent $0.0167
+call 42/50: kept 166, rejected 44, spent $0.0168
+call 43/50: kept 171, rejected 44, spent $0.0170
+call 44/50: kept 176, rejected 44, spent $0.0179
+  attempt 1 failed: JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2370 (char 2369)

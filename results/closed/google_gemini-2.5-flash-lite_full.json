@@ -1,0 +1,24 @@
+{
+  "model": "google/gemini-2.5-flash-lite",
+  "prompt_mode": "full",
+  "overall": {
+    "n": 24,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 1.0,
+    "field_precision": 0.8867924528301887,
+    "field_recall": 0.8867924528301887,
+    "field_f1": 0.8867924528301887,
+    "exact_match_rate": 0.25
+  },
+  "usage": {
+    "prompt_tokens": 5934,
+    "completion_tokens": 2664,
+    "cost": 0.001659,
+    "seconds": 29.4336256980896
+  },
+  "tokens_per_doc": {
+    "prompt": 247.25,
+    "completion": 111.0
+  },
+  "cost_per_1000_docs_usd": 0.069125
+}

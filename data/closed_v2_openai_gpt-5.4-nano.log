@@ -1,0 +1,2 @@
+openai/gpt-5.4-nano                short valid 1.00 schema 0.00 F1 0.054 exact 0.00 | 95+155 tok/doc $0.213/1k docs (spent $0.026)
+openai/gpt-5.4-nano                full  valid 1.00 schema 0.98 F1 0.809 exact 0.16 | 239+96 tok/doc $0.167/1k docs (spent $0.046)

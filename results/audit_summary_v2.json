@@ -1,0 +1,87 @@
+{
+  "n_test_documents": 120,
+  "runs": {
+    "untuned_short": {
+      "is_json": 0.0,
+      "json_schema_valid": 0.0,
+      "field_f1": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0
+    },
+    "untuned_full": {
+      "is_json": 0.9917,
+      "json_schema_valid": 0.9417,
+      "field_f1": 0.7025,
+      "field_precision": 0.7025,
+      "field_recall": 0.7025
+    },
+    "tuned": {
+      "is_json": 1.0,
+      "json_schema_valid": 0.9333,
+      "field_f1": 0.8283,
+      "field_precision": 0.8283,
+      "field_recall": 0.8283
+    },
+    "anthropic_claude-haiku-5.5_full": {
+      "is_json": 1.0,
+      "json_schema_valid": 1.0,
+      "field_f1": 0.845,
+      "field_precision": 0.845,
+      "field_recall": 0.845
+    },
+    "anthropic_claude-haiku-5.5_short": {
+      "is_json": 0.725,
+      "json_schema_valid": 0.0,
+      "field_f1": 0.0453,
+      "field_precision": 0.0423,
+      "field_recall": 0.05
+    },
+    "cohere_command-a_full": {
+      "is_json": 1.0,
+      "json_schema_valid": 1.0,
+      "field_f1": 0.8317,
+      "field_precision": 0.8317,
+      "field_recall": 0.8317
+    },
+    "cohere_command-a_short": {
+      "is_json": 0.0,
+      "json_schema_valid": 0.0,
+      "field_f1": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0
+    },
+    "google_gemini-2.5-flash-lite_full": {
+      "is_json": 1.0,
+      "json_schema_valid": 1.0,
+      "field_f1": 0.84,
+      "field_precision": 0.84,
+      "field_recall": 0.84
+    },
+    "google_gemini-2.5-flash-lite_short": {
+      "is_json": 0.9917,
+      "json_schema_valid": 0.0,
+      "field_f1": 0.0133,
+      "field_precision": 0.016,
+      "field_recall": 0.0117
+    },
+    "openai_gpt-5.4-nano_full": {
+      "is_json": 1.0,
+      "json_schema_valid": 0.9833,
+      "field_f1": 0.8192,
+      "field_precision": 0.8192,
+      "field_recall": 0.8192
+    },
+    "openai_gpt-5.4-nano_short": {
+      "is_json": 1.0,
+      "json_schema_valid": 0.0,
+      "field_f1": 0.0439,
+      "field_precision": 0.0425,
+      "field_recall": 0.0475
+    }
+  },
+  "comparison": {
+    "before": "untuned_full",
+    "after": "tuned",
+    "summary": "Comparison: 128e3616a8ed2382 (baseline) -> 8c658c23d970b866 (candidate)\n  per-metric (baseline -> candidate | absolute delta | relative %):\n    field_f1: 0.7025 -> 0.8283  delta=+0.1258 (+17.9% rel)  (n=120->120, std=0.1640->0.1142)\n    field_precision: 0.7025 -> 0.8283  delta=+0.1258 (+17.9% rel)  (n=120->120, std=0.1640->0.1142)\n    field_recall: 0.7025 -> 0.8283  delta=+0.1258 (+17.9% rel)  (n=120->120, std=0.1640->0.1142)\n    is_json: 0.9917 -> 1.0000  delta=+0.0083 (+0.8% rel)  (n=120->120, std=0.0909->0.0000)\n    json_schema_valid: 0.9417 -> 0.9333  delta=-0.0083 (-0.9% rel)  (n=120->120, std=0.2344->0.2494)\n  samples: 0 went correct->wrong, 1 went wrong->correct\n  model: precomputed -> precomputed (no measurable size)"
+  }
+}

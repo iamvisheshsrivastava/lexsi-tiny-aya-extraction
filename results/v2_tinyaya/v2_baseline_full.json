@@ -1,0 +1,78 @@
+{
+  "model": "CohereLabs/tiny-aya-global",
+  "adapter": null,
+  "split": "test",
+  "prompt": "full",
+  "stop_at_brace": true,
+  "outputs_at_token_limit": 0,
+  "n_documents": 120,
+  "overall": {
+    "n": 120,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 0.9416666666666667,
+    "field_precision": 0.7217777777777777,
+    "field_recall": 0.7631578947368421,
+    "field_f1": 0.7418912745545911,
+    "exact_match_rate": 0.03333333333333333
+  },
+  "tokens_per_second": 57.5267105025091,
+  "seconds": 204.0443456172943,
+  "by_language": {
+    "de": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9666666666666667,
+      "field_precision": 0.7380073800738007,
+      "field_recall": 0.7575757575757576,
+      "field_f1": 0.7476635514018691,
+      "exact_match_rate": 0.0
+    },
+    "en": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9333333333333333,
+      "field_precision": 0.6725352112676056,
+      "field_recall": 0.7262357414448669,
+      "field_f1": 0.6983546617915906,
+      "exact_match_rate": 0.0
+    },
+    "fr": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 1.0,
+      "field_precision": 0.7177700348432056,
+      "field_recall": 0.7773584905660378,
+      "field_f1": 0.7463768115942029,
+      "exact_match_rate": 0.0
+    },
+    "hi": {
+      "n": 30,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.8666666666666667,
+      "field_precision": 0.7597173144876325,
+      "field_recall": 0.7904411764705882,
+      "field_f1": 0.7747747747747747,
+      "exact_match_rate": 0.13333333333333333
+    }
+  },
+  "by_doc_type": {
+    "support_ticket": {
+      "n": 61,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.9836065573770492,
+      "field_precision": 0.6762075134168157,
+      "field_recall": 0.7590361445783133,
+      "field_f1": 0.7152317880794703,
+      "exact_match_rate": 0.0
+    },
+    "invoice": {
+      "n": 59,
+      "valid_json_rate": 1.0,
+      "schema_pass_rate": 0.8983050847457628,
+      "field_precision": 0.7667844522968198,
+      "field_recall": 0.7667844522968198,
+      "field_f1": 0.7667844522968198,
+      "exact_match_rate": 0.06779661016949153
+    }
+  }
+}

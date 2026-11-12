@@ -1,0 +1,24 @@
+{
+  "model": "cohere/command-a",
+  "prompt_mode": "full",
+  "overall": {
+    "n": 120,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 1.0,
+    "field_precision": 0.8415458937198068,
+    "field_recall": 0.818609022556391,
+    "field_f1": 0.8299190090519295,
+    "exact_match_rate": 0.15833333333333333
+  },
+  "usage": {
+    "prompt_tokens": 32243,
+    "completion_tokens": 12892,
+    "cost": 0.20952749999999998,
+    "seconds": 1096.2634286880493
+  },
+  "tokens_per_doc": {
+    "prompt": 268.69166666666666,
+    "completion": 107.43333333333334
+  },
+  "cost_per_1000_docs_usd": 1.7460624999999999
+}

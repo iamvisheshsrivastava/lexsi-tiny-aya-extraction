@@ -1,0 +1,25 @@
+call 1/24: kept 2, rejected 3, spent $0.0006
+call 2/24: kept 7, rejected 3, spent $0.0014
+call 3/24: kept 9, rejected 6, spent $0.0017
+call 4/24: kept 14, rejected 6, spent $0.0022
+call 5/24: kept 19, rejected 6, spent $0.0024
+call 6/24: kept 23, rejected 7, spent $0.0027
+call 7/24: kept 26, rejected 9, spent $0.0028
+call 8/24: kept 31, rejected 9, spent $0.0031
+call 9/24: kept 32, rejected 13, spent $0.0033
+call 10/24: kept 37, rejected 13, spent $0.0035
+call 11/24: kept 40, rejected 15, spent $0.0037
+call 12/24: kept 45, rejected 15, spent $0.0039
+call 13/24: kept 50, rejected 15, spent $0.0041
+call 14/24: kept 55, rejected 15, spent $0.0043
+  attempt 1 failed: KeyError: 'items'
+call 15/24: kept 60, rejected 15, spent $0.0046
+call 16/24: kept 65, rejected 15, spent $0.0048
+call 17/24: kept 70, rejected 15, spent $0.0050
+call 18/24: kept 75, rejected 15, spent $0.0052
+call 19/24: kept 80, rejected 15, spent $0.0057
+call 20/24: kept 82, rejected 18, spent $0.0059
+call 21/24: kept 87, rejected 18, spent $0.0063
+call 22/24: kept 92, rejected 18, spent $0.0065
+call 23/24: kept 97, rejected 18, spent $0.0066
+call 24/24: kept 102, rejected 18, spent $0.0068

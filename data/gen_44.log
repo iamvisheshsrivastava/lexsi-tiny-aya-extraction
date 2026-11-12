@@ -1,0 +1,27 @@
+call 1/75: kept 5, rejected 0
+call 2/75: kept 10, rejected 0
+call 3/75: kept 15, rejected 0
+call 4/75: kept 20, rejected 0
+call 5/75: kept 25, rejected 0
+call 6/75: kept 30, rejected 0
+  attempt 1 failed: ReadTimeout: The read operation timed out
+call 7/75: kept 35, rejected 0
+call 8/75: kept 40, rejected 0
+call 9/75: kept 45, rejected 0
+  attempt 1 failed: ReadTimeout: The read operation timed out
+call 10/75: kept 50, rejected 0
+  attempt 1 failed: ReadTimeout: The read operation timed out
+call 11/75: kept 55, rejected 0
+  attempt 1 failed: ReadTimeout: The read operation timed out
+call 12/75: kept 60, rejected 0
+call 13/75: kept 65, rejected 0
+  attempt 1 failed: ReadTimeout: The read operation timed out
+call 14/75: kept 70, rejected 0
+  attempt 1 failed: RemoteProtocolError: Server disconnected without sending a response.
+  attempt 2 failed: ReadTimeout: The read operation timed out
+call 15/75: kept 75, rejected 0
+call 16/75: kept 80, rejected 0
+call 17/75: kept 85, rejected 0
+  attempt 1 failed: ReadTimeout: The read operation timed out
+call 18/75: kept 90, rejected 0
+  attempt 1 failed: ReadTimeout: The read operation timed out

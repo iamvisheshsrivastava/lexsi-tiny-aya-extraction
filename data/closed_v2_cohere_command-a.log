@@ -1,0 +1,2 @@
+cohere/command-a                   short valid 0.00 schema 0.00 F1 0.000 exact 0.00 | 108+131 tok/doc $1.575/1k docs (spent $0.189)
+cohere/command-a                   full  valid 1.00 schema 1.00 F1 0.830 exact 0.16 | 269+107 tok/doc $1.746/1k docs (spent $0.398)

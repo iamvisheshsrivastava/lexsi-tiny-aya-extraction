@@ -1,0 +1,74 @@
+{
+  "model": "CohereLabs/tiny-aya-global",
+  "adapter": null,
+  "split": "test",
+  "overall": {
+    "n": 24,
+    "valid_json_rate": 0.041666666666666664,
+    "schema_pass_rate": 0.0,
+    "field_precision": 0.0,
+    "field_recall": 0.0,
+    "field_f1": 0.0,
+    "exact_match_rate": 0.0
+  },
+  "tokens_per_second": 51.872448741786535,
+  "seconds": 52.60981631278992,
+  "by_language": {
+    "fr": {
+      "n": 7,
+      "valid_json_rate": 0.0,
+      "schema_pass_rate": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0,
+      "field_f1": 0.0,
+      "exact_match_rate": 0.0
+    },
+    "en": {
+      "n": 12,
+      "valid_json_rate": 0.08333333333333333,
+      "schema_pass_rate": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0,
+      "field_f1": 0.0,
+      "exact_match_rate": 0.0
+    },
+    "hi": {
+      "n": 3,
+      "valid_json_rate": 0.0,
+      "schema_pass_rate": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0,
+      "field_f1": 0.0,
+      "exact_match_rate": 0.0
+    },
+    "de": {
+      "n": 2,
+      "valid_json_rate": 0.0,
+      "schema_pass_rate": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0,
+      "field_f1": 0.0,
+      "exact_match_rate": 0.0
+    }
+  },
+  "by_doc_type": {
+    "support_ticket": {
+      "n": 11,
+      "valid_json_rate": 0.09090909090909091,
+      "schema_pass_rate": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0,
+      "field_f1": 0.0,
+      "exact_match_rate": 0.0
+    },
+    "invoice": {
+      "n": 13,
+      "valid_json_rate": 0.0,
+      "schema_pass_rate": 0.0,
+      "field_precision": 0.0,
+      "field_recall": 0.0,
+      "field_f1": 0.0,
+      "exact_match_rate": 0.0
+    }
+  }
+}

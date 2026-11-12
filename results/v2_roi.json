@@ -1,0 +1,69 @@
+{
+  "measured_T4_4bit_HF_generate_batch8": {
+    "Tiny Aya, fine-tuned, short prompt": {
+      "seconds_per_document": 1.93849844733874,
+      "documents_per_second": 0.5158631936862503
+    },
+    "Tiny Aya, untuned, full schema prompt": {
+      "seconds_per_document": 1.700369546810786,
+      "documents_per_second": 0.5881074510394523
+    }
+  },
+  "assumed_gpu_price_per_hour_usd": {
+    "Kaggle free tier": 0.0,
+    "assumed cheap T4 rental": 0.35,
+    "assumed on-demand T4": 0.8
+  },
+  "self_hosted_cost_per_1000_docs_usd": {
+    "Tiny Aya, fine-tuned, short prompt": {
+      "Kaggle free tier": 0.0,
+      "assumed cheap T4 rental": 0.18846512682459973,
+      "assumed on-demand T4": 0.43077743274194225
+    },
+    "Tiny Aya, untuned, full schema prompt": {
+      "Kaggle free tier": 0.0,
+      "assumed cheap T4 rental": 0.16531370593993752,
+      "assumed on-demand T4": 0.37785989929128583
+    }
+  },
+  "hosted_full_prompt": {
+    "anthropic/claude-haiku-5.5": {
+      "cost_per_1000": 0.23517916666666674,
+      "prompt_tokens": 376.2916666666667,
+      "completion_tokens": 395.1
+    },
+    "cohere/command-a": {
+      "cost_per_1000": 1.7460624999999999,
+      "prompt_tokens": 268.69166666666666,
+      "completion_tokens": 107.43333333333334
+    },
+    "google/gemini-2.5-flash-lite": {
+      "cost_per_1000": 0.07229999999999998,
+      "prompt_tokens": 265.8666666666667,
+      "completion_tokens": 114.28333333333333
+    },
+    "openai/gpt-5.4-nano": {
+      "cost_per_1000": 0.1674733333333333,
+      "prompt_tokens": 239.24166666666667,
+      "completion_tokens": 95.7
+    }
+  },
+  "breakeven_documents_per_second": {
+    "anthropic/claude-haiku-5.5": {
+      "assumed cheap T4 rental": 0.41339640581353443,
+      "assumed on-demand T4": 0.944906070430936
+    },
+    "cohere/command-a": {
+      "assumed cheap T4 rental": 0.0556808374397951,
+      "assumed on-demand T4": 0.12727048557667453
+    },
+    "google/gemini-2.5-flash-lite": {
+      "assumed cheap T4 rental": 1.3447057015521748,
+      "assumed on-demand T4": 3.073613032119257
+    },
+    "openai/gpt-5.4-nano": {
+      "assumed cheap T4 rental": 0.5805235991136235,
+      "assumed on-demand T4": 1.3269110836882823
+    }
+  }
+}

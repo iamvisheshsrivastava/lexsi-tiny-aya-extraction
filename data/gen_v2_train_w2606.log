@@ -1,0 +1,25 @@
+call 1/24: kept 5, rejected 0, spent $0.0002
+call 2/24: kept 10, rejected 0, spent $0.0005
+call 3/24: kept 15, rejected 0, spent $0.0007
+call 4/24: kept 19, rejected 1, spent $0.0014
+call 5/24: kept 24, rejected 1, spent $0.0017
+call 6/24: kept 29, rejected 1, spent $0.0021
+call 7/24: kept 34, rejected 1, spent $0.0022
+call 8/24: kept 39, rejected 1, spent $0.0025
+call 9/24: kept 44, rejected 1, spent $0.0027
+call 10/24: kept 49, rejected 1, spent $0.0034
+call 11/24: kept 51, rejected 4, spent $0.0036
+call 12/24: kept 56, rejected 4, spent $0.0040
+call 13/24: kept 61, rejected 4, spent $0.0042
+call 14/24: kept 66, rejected 4, spent $0.0044
+call 15/24: kept 71, rejected 4, spent $0.0047
+call 16/24: kept 76, rejected 4, spent $0.0053
+call 17/24: kept 81, rejected 4, spent $0.0055
+call 18/24: kept 85, rejected 5, spent $0.0061
+call 19/24: kept 90, rejected 5, spent $0.0071
+call 20/24: kept 95, rejected 5, spent $0.0074
+call 21/24: kept 100, rejected 5, spent $0.0076
+call 22/24: kept 105, rejected 5, spent $0.0080
+call 23/24: kept 109, rejected 6, spent $0.0088
+  attempt 1 failed: AttributeError: 'NoneType' object has no attribute 'strip'
+call 24/24: kept 114, rejected 6, spent $0.0109
