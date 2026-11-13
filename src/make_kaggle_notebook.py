@@ -102,6 +102,37 @@ def main():
              "    d = json.load(open(path))\n"
              "    print(path, {k: round(v, 3) for k, v in d['overall'].items()}, 'at token limit:', d.get('outputs_at_token_limit'),"
              " 'seconds:', round(d['seconds']))")]
+    # seed 2 + enum repair: a second training run with another seed, and the constrained-choice repair for both adapters
+    ADAPTER_REPO = f"{USER}/lexsi-tiny-aya-extraction-lora"
+    cells_seed2 = [
+        md("# Tiny Aya extraction: second training seed and enum repair\n\n"
+           "1. Repair invalid closed-field values (for example `issue_category`) in the round-2 adapter's outputs by letting the model choose among the "
+           "allowed values (the public adapter and its predictions are downloaded from Hugging Face).\n"
+           "2. Train the same recipe again with another seed (7) and evaluate it on the v2 and v1 test sets.\n"
+           "3. Repair the new adapter's outputs the same way.\n\n"
+           "Needs a GPU, internet and the `HF_TOKEN` secret. About 2.2 hours on a T4."),
+        cells[1], login_v2, cells[3], cells[4], cells[5], cells[6], script("repair_enums.py"),
+        md("## 1. Enum repair on the round-2 adapter (seed 42)"),
+        code("%cd /kaggle/working\n"
+             "from huggingface_hub import snapshot_download\n"
+             f"snapshot_download('{ADAPTER_REPO}', local_dir='seed42', token=token, allow_patterns=['adapter_*', 'chat_template.jinja', 'tokenizer*', 'results/v2_tinyaya/v2_tuned.predictions.json'])\n"
+             "import os; print(os.listdir('seed42'))\n"
+             f"!python repair_enums.py --model {MODEL} --adapter seed42 --data data/final --predictions seed42/results/v2_tinyaya/v2_tuned.predictions.json --out results/seed42_repaired.json || echo 'repair failed, continuing'"),
+        md("## 2. Second training seed (7), same recipe"),
+        code(f"!python train_sft.py --model {MODEL} --data data/final/train.jsonl --out out_seed7 --epochs 2 --seed 7"),
+        code("%cd /kaggle/working\n"
+             f"!python eval_model.py --model {MODEL} --adapter out_seed7/adapter --data data/final --split test --out results/seed7_tuned.json\n"
+             f"!python eval_model.py --model {MODEL} --adapter out_seed7/adapter --data data/final --split test_v1 --out results/seed7_v1test_tuned.json"),
+        md("## 3. Enum repair on the seed-7 adapter"),
+        code(f"!python repair_enums.py --model {MODEL} --adapter out_seed7/adapter --data data/final --predictions results/seed7_tuned.predictions.json --out results/seed7_repaired.json || echo 'repair failed'"),
+        code("import json, glob\nfor path in sorted(glob.glob('results/*.json')):\n"
+             "    if path.endswith('predictions.json'):\n        continue\n"
+             "    d = json.load(open(path))\n"
+             "    print(path, {k: round(v, 3) for k, v in (d.get('overall') or d.get('after') or {}).items() if isinstance(v, float)}, 'repaired:', d.get('values_repaired'))")]
+    OUT4 = OUT.with_name("lexsi_seed2_repair.ipynb")
+    OUT4.write_text(json.dumps(dict(nb, cells=cells_seed2), indent=1), encoding="utf-8")
+    print("wrote", OUT4)
+
     OUT3 = OUT.with_name("lexsi_pipeline_v2.ipynb")
     OUT3.write_text(json.dumps(dict(nb, cells=cells_v2), indent=1), encoding="utf-8")
     print("wrote", OUT3)

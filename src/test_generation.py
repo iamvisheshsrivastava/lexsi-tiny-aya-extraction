@@ -42,3 +42,24 @@ def test_near_duplicate_filter():
     c = shingles("My router stopped working yesterday and nobody answers the phone at your support line.")
     assert jaccard(a, b) >= 0.7
     assert jaccard(a, c) < 0.3
+
+
+def test_enum_repair_replaces_only_invalid_values():
+    from repair_enums import count_unfixable, find_invalid_enums, repair_text
+    text = '{"doc_type": "invoice", "language": "de", "issue_category": "error", "priority": "high", "amount": 3.5}'
+    assert [item[0] for item in find_invalid_enums(text)] == ["issue_category"]
+    seen = []
+
+    def choose(prefix, key, allowed):
+        seen.append((prefix.endswith('"'), key))
+        return "other"
+    fixed, changes = repair_text(text, choose)
+    assert '"issue_category": "other"' in fixed and '"priority": "high"' in fixed
+    assert changes == [{"key": "issue_category", "from": "error", "to": "other"}] and seen == [(True, "issue_category")]
+    # allowed values are left alone, a null in a closed field is repaired, a missing key is only counted
+    assert repair_text('{"priority": "low"}', choose) == ('{"priority": "low"}', [])
+    fixed, changes = repair_text('{"issue_category": null, "priority": "bogus"}', lambda p, k, a: a[0])
+    assert fixed == '{"issue_category": "billing", "priority": "low"}' and len(changes) == 2
+    assert count_unfixable('{"doc_type": "invoice"}') == 3
+    # a chooser that cannot decide leaves the text unchanged
+    assert repair_text(text, lambda p, k, a: None) == (text, [])

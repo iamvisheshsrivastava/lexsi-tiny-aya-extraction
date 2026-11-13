@@ -89,6 +89,14 @@ fine-tuned run reports 1 document going from wrong to right under its strict who
 scores above). On the old 24-document test set, the same fine-tuned model reaches F1 0.89 (own scorer, exact match 33%) against 0.85
 (exact match 8%) for the untuned model with the full prompt (`results/v2_tinyaya/v1test_*`).
 
+**How good are the v2 test labels?** The labels were written by a teacher model, so we checked a sample: 32 test documents (8 per language, chosen
+with a fixed seed) were read against their gold labels (`results/label_audit.json`). The reader was Claude (Sonnet 5.5), not a human. In 8
+of the 32 documents (25%) at least one field was clearly wrong or unsupported by the text, which is 8 of 320 fields (2.5%): three have
+`doc_type` set to invoice for what is really a support ticket, two have a date that is not in the text, one names the issuing company instead of the
+customer, one has an issue category that the text does not support, and one has a null product that the text does state. Another 4 labels are debatable (mostly
+`priority`). So the labels are mostly sound but not clean, and a 25% rate of documents with a defect puts a ceiling on every score here; all models, hosted or not,
+are scored against the same labels.
+
 **What the fine-tuned model gets wrong.** Eight of 120 outputs fail the strict schema: seven use an `issue_category` that is not one of the
 allowed values, and one adds a key. Nothing hit the token limit, which was a problem in round 1. The untuned model fails seven documents
 in other ways (a malformed currency, a language outside the allowed set, missing keys). Files: `results/v2_tinyaya/`, `results/v2_bootstrap.json`,
@@ -183,7 +191,7 @@ throughput-oriented server could change the cost; we did not test one. Full numb
 
 ## Limitations
 
-The round-1 numbers rest on 24 test documents; the v2 test set has 120 but its labels are model-written and not checked by a person. All data is synthetic, written by two teacher models (Command A, DeepSeek V4 Flash); a single training run and seed per round (the bootstrap interval covers test-set sampling only, not training variance); AuditKIT and our scorer disagree by a few points because of how strictly they parse;
+The round-1 numbers rest on 24 test documents; the v2 test set has 120 but its labels are model-written and not checked by a person. All data is synthetic, written by two teacher models (Command A, DeepSeek V4 Flash); a single training run and seed per round (the bootstrap interval covers test-set sampling only, not training variance; a second seed and a constrained-choice repair of invalid `issue_category` values, `src/repair_enums.py`, are prepared but not run); AuditKIT and our scorer disagree by a few points because of how strictly they parse;
 GPU prices are assumed; the hosted-model comparison reflects prices and model versions on the day we ran it; the full-prompt wording
 was corrected once after seeing test failures.
 
@@ -208,7 +216,9 @@ python src/build_v2.py finalize --test-size 120
 python src/eval_closed.py --models google/gemini-2.5-flash-lite --data data/final_v2 --out results/v2_closed
 python src/audit.py --data data/final_v2 --closed v2_closed --runs --out audit_summary_v2.json
 # GPU: notebooks/lexsi_pipeline_v2.ipynb                       # Tiny Aya on v2 (reads the v2 dataset from Hugging Face)
-python -m pytest -q src                                        # 13 tests, including "every gold output matches the schema"
+# GPU: notebooks/lexsi_seed2_repair.ipynb                      # prepared, not yet run: a second training seed (7) and enum repair
+python src/bootstrap.py --data data/final_v2 --a <predictions A> --b <predictions B>   # paired bootstrap interval
+python -m pytest -q src                                        # 14 tests, including "every gold output matches the schema"
 ```
 
 Keys live in a git-ignored `.env`; nothing secret is in this repository.
@@ -222,7 +232,7 @@ the main results above). The round-1 adapter (188 documents) is in `adapter_v1/`
 ## Files
 
 `src/` code and tests, `results/` metrics, predictions and cost tables (`audit_summary*.json`, `roi*.md`, `baseline*.json`, `tuned.json`,
-`closed/`, `v2_closed/`), `notebooks/` the three Kaggle notebooks, `data/final/` (v1) and `data/final_v2/` (v2) the splits, plus the raw
+`closed/`, `v2_closed/`), `notebooks/` the four Kaggle notebooks (the last, `lexsi_seed2_repair.ipynb`, has not been run), `data/final/` (v1) and `data/final_v2/` (v2) the splits, plus the raw
 generated files and logs. Hugging Face: the adapters, logs and metrics
 ([`iamvisheshsrivastava/lexsi-tiny-aya-extraction-lora`](https://huggingface.co/iamvisheshsrivastava/lexsi-tiny-aya-extraction-lora)) and the datasets
 [`lexsi-extraction-data`](https://huggingface.co/datasets/iamvisheshsrivastava/lexsi-extraction-data) (v1) and

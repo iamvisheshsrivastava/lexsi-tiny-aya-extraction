@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--data", default="data/final/train.jsonl")
     parser.add_argument("--out", default="out")
     parser.add_argument("--epochs", type=int, default=3)
+    parser.add_argument("--seed", type=int, default=42, help="42 is the AlignTune default and was used for every run reported so far")
     args = parser.parse_args()
     trainer = create_sft_trainer(
         model_name=args.model,
@@ -33,6 +34,7 @@ def main():
         quantization={"load_in_4bit": True},
         task_type="sft",
         format_type="alpaca",
+        seed=args.seed,
     )
     trainer.train()
     print("saved to", trainer.save_model(args.out + "/adapter"))

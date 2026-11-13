@@ -1,0 +1,102 @@
+{
+  "auditor": "Claude (Sonnet 5.5), reading each document against its gold label; not a human",
+  "documents_checked": 32,
+  "indices": [
+    0,
+    12,
+    20,
+    28,
+    40,
+    68,
+    72,
+    104,
+    13,
+    17,
+    21,
+    37,
+    49,
+    73,
+    89,
+    105,
+    2,
+    6,
+    26,
+    46,
+    54,
+    86,
+    90,
+    118,
+    3,
+    15,
+    31,
+    59,
+    67,
+    75,
+    103,
+    119
+  ],
+  "documents_with_a_clear_defect": 8,
+  "clear_defects": [
+    {
+      "doc": 12,
+      "field": "doc_type",
+      "note": "labelled invoice, but the text is a complaint about a delivery (a support ticket)"
+    },
+    {
+      "doc": 13,
+      "field": "doc_type",
+      "note": "labelled invoice, but the text is a refund request (a support ticket)"
+    },
+    {
+      "doc": 49,
+      "field": "doc_type",
+      "note": "labelled invoice, but the text is a login problem (a support ticket)"
+    },
+    {
+      "doc": 20,
+      "field": "date_iso",
+      "note": "2024-05-05 appears nowhere in the text (the stay is 10.06.2024)"
+    },
+    {
+      "doc": 72,
+      "field": "date_iso",
+      "note": "2025-02-28 is invented; the text only says February 2025"
+    },
+    {
+      "doc": 37,
+      "field": "party_name",
+      "note": "labelled with the issuing company; the invoiced customer is Herr Weber"
+    },
+    {
+      "doc": 73,
+      "field": "issue_category",
+      "note": "labelled refund, but the document is a plain invoice that only mentions a refund policy"
+    },
+    {
+      "doc": 31,
+      "field": "product",
+      "note": "null, but the text says the customer bought a film"
+    }
+  ],
+  "fields_checked": 320,
+  "fields_with_a_clear_defect": 8,
+  "debatable_but_not_counted": [
+    {
+      "doc": 103,
+      "note": "amount 500 is the difference; 3200 or 3700 could also be argued"
+    },
+    {
+      "doc": 6,
+      "note": "priority urgent for a 15-day payment request is a stretch"
+    },
+    {
+      "doc": 3,
+      "note": "priority high for a voucher glitch is a stretch"
+    },
+    {
+      "doc": 73,
+      "note": "priority high is a stretch"
+    }
+  ],
+  "summary": "8 of 32 documents (25%) have at least one clearly wrong or unsupported field; 8 of 320 fields (2.5%). Another 4 labels are debatable. doc_type is the weakest field (3 of 8 defects)."
+}
