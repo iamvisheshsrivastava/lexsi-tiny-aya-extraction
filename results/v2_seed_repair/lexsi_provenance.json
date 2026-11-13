@@ -1,0 +1,26 @@
+{
+  "schema": "lexsi.provenance/1",
+  "library": "aligntune",
+  "version": "0.1.35",
+  "git_sha": null,
+  "created_at": "2026-11-13T12:52:13Z",
+  "base_model": "CohereLabs/tiny-aya-global",
+  "method": "sft",
+  "inputs": [
+    {
+      "kind": "model",
+      "ref": "CohereLabs/tiny-aya-global",
+      "config": null,
+      "provenance": null
+    },
+    {
+      "kind": "dataset",
+      "ref": "/kaggle/working/data/final/train.jsonl",
+      "config": null,
+      "provenance": null
+    }
+  ],
+  "params": {
+    "trainer": "TRLSFTTrainer"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "model": "CohereLabs/tiny-aya-global",
+  "adapter": "out_seed7/adapter",
+  "split": "test",
+  "documents": 120,
+  "values_repaired": 8,
+  "documents_with_missing_closed_field": 0,
+  "seconds": 19.997000455856323,
+  "before": {
+    "n": 120,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 0.9333333333333333,
+    "field_precision": 0.8141263940520446,
+    "field_recall": 0.8233082706766918,
+    "field_f1": 0.8186915887850468,
+    "exact_match_rate": 0.125
+  },
+  "after": {
+    "n": 120,
+    "valid_json_rate": 1.0,
+    "schema_pass_rate": 1.0,
+    "field_precision": 0.8159851301115242,
+    "field_recall": 0.825187969924812,
+    "field_f1": 0.8205607476635514,
+    "exact_match_rate": 0.125
+  },
+  "changes": [
+    {
+      "key": "issue_category",
+      "from": "support",
+      "to": "account",
+      "doc": 6
+    },
+    {
+      "key": "issue_category",
+      "from": "error",
+      "to": "billing",
+      "doc": 10
+    },
+    {
+      "key": "issue_category",
+      "from": "reservation",
+      "to": "billing",
+      "doc": 20
+    },
+    {
+      "key": "issue_category",
+      "from": "error",
+      "to": "account",
+      "doc": 36
+    },
+    {
+      "key": "issue_category",
+      "from": "error",
+      "to": "billing",
+      "doc": 44
+    },
+    {
+      "key": "issue_category",
+      "from": "error",
+      "to": "billing",
+      "doc": 60
+    },
+    {
+      "key": "issue_category",
+      "from": "delivery",
+      "to": "shipping",
+      "doc": 91
+    },
+    {
+      "key": "issue_category",
+      "from": "returns",
+      "to": "shipping",
+      "doc": 109
+    }
+  ]
+}

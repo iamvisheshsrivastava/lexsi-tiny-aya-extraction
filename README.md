@@ -17,6 +17,10 @@ set. The round-2 result is the main one.
   AuditKIT field F1 0.70. The fine-tuned model, given only the ten-word prompt "Extract the structured fields.", gets **0.83**, and
   returns parseable JSON for 100% of documents (93% pass the strict schema, against 94% for the untuned model). Exact match is 15%
   against 3%. The difference in per-document F1 is +0.08 with a 95% bootstrap interval of +0.06 to +0.11 (76 documents better, 25 worse).
+- **It is not a lucky seed, and the schema failures can be repaired.** A second training run with another seed gives the same score (AuditKIT
+  field F1 0.83 for both; the difference between the two is 0.001 with an interval of -0.010 to +0.012). Letting the model choose among
+  the allowed values wherever it wrote an invalid one (`src/repair_enums.py`) lifts strict-schema validity from 93% to 99% (seed 42) and
+  100% (seed 7) and leaves F1 unchanged (+0.001): the repair makes the output usable, it does not make it more accurate.
 - **It gets close to hosted models.** With the full schema prompt, four hosted models score 0.82 to 0.85 and 98 to 100% schema-valid
   output. The fine-tuned 3.35B model is within that range on F1 (0.83) but not on strict schema validity (93%). Claude Haiku 5.5 is
   still slightly ahead on a paired comparison (+0.02, interval +0.002 to +0.04).
@@ -96,6 +100,15 @@ of the 32 documents (25%) at least one field was clearly wrong or unsupported by
 customer, one has an issue category that the text does not support, and one has a null product that the text does state. Another 4 labels are debatable (mostly
 `priority`). So the labels are mostly sound but not clean, and a 25% rate of documents with a defect puts a ceiling on every score here; all models, hosted or not,
 are scored against the same labels.
+
+**Second seed and enum repair (`notebooks/lexsi_seed2_repair.ipynb`, one Kaggle GPU run).** The same recipe with seed 7 gives field F1 0.829
+(seed 42: 0.828), 100% parseable and 93% schema-valid output, exact match 12.5% (seed 42: 15%), and 0.89 on the old 24-document test set (seed 42: 0.89).
+The repair step reads the generated JSON, finds a closed field (`doc_type`, `language`, `issue_category`, `priority`) whose value is not
+allowed, and replaces it with the allowed value that the same model finds most likely at that position. It changed 7 values for seed 42
+and 8 for seed 7, all `issue_category`; schema validity went from 93.3% to 99.2% and 100%, and field F1 from 0.828 to 0.829 and from 0.829 to
+0.831. Most of the repaired values still do not equal the gold label (the model had no good answer to begin with), so this is a validity fix,
+not an accuracy fix. One seed-42 output misses a key altogether, which the repair does not touch. The two-seed result is two runs, not a
+variance estimate. Files: `results/v2_seed_repair/`, `results/audit_summary_v2_seeds.json`.
 
 **What the fine-tuned model gets wrong.** Eight of 120 outputs fail the strict schema: seven use an `issue_category` that is not one of the
 allowed values, and one adds a key. Nothing hit the token limit, which was a problem in round 1. The untuned model fails seven documents
@@ -191,7 +204,7 @@ throughput-oriented server could change the cost; we did not test one. Full numb
 
 ## Limitations
 
-The round-1 numbers rest on 24 test documents; the v2 test set has 120 but its labels are model-written and not checked by a person. All data is synthetic, written by two teacher models (Command A, DeepSeek V4 Flash); a single training run and seed per round (the bootstrap interval covers test-set sampling only, not training variance; a second seed and a constrained-choice repair of invalid `issue_category` values, `src/repair_enums.py`, are prepared but not run); AuditKIT and our scorer disagree by a few points because of how strictly they parse;
+The round-1 numbers rest on 24 test documents; the v2 test set has 120 but its labels are model-written and not checked by a person. All data is synthetic, written by two teacher models (Command A, DeepSeek V4 Flash); two training runs (seeds 42 and 7) for round 2 and one for round 1, so the bootstrap interval covers test-set sampling only and the seed check is two runs; AuditKIT and our scorer disagree by a few points because of how strictly they parse;
 GPU prices are assumed; the hosted-model comparison reflects prices and model versions on the day we ran it; the full-prompt wording
 was corrected once after seeing test failures.
 
@@ -216,7 +229,7 @@ python src/build_v2.py finalize --test-size 120
 python src/eval_closed.py --models google/gemini-2.5-flash-lite --data data/final_v2 --out results/v2_closed
 python src/audit.py --data data/final_v2 --closed v2_closed --runs --out audit_summary_v2.json
 # GPU: notebooks/lexsi_pipeline_v2.ipynb                       # Tiny Aya on v2 (reads the v2 dataset from Hugging Face)
-# GPU: notebooks/lexsi_seed2_repair.ipynb                      # prepared, not yet run: a second training seed (7) and enum repair
+# GPU: notebooks/lexsi_seed2_repair.ipynb                      # second training seed (7) and enum repair
 python src/bootstrap.py --data data/final_v2 --a <predictions A> --b <predictions B>   # paired bootstrap interval
 python -m pytest -q src                                        # 14 tests, including "every gold output matches the schema"
 ```
@@ -226,13 +239,13 @@ Keys live in a git-ignored `.env`; nothing secret is in this repository.
 ## Adapters (Hugging Face model repo)
 
 The files at the top of `iamvisheshsrivastava/lexsi-tiny-aya-extraction-lora` are the **round-2 adapter** (510 training documents, the one in
-the main results above). The round-1 adapter (188 documents) is in `adapter_v1/`. Load either on top of `CohereLabs/tiny-aya-global`
+the main results above). The round-1 adapter (188 documents) is in `adapter_v1/`; the second round-2 training run (seed 7, same recipe) is in `adapter_seed7/`. Load either on top of `CohereLabs/tiny-aya-global`
 (accept its licence first) with PEFT. Logs: `logs_v2/` (round 2) and `logs/` (round 1).
 
 ## Files
 
 `src/` code and tests, `results/` metrics, predictions and cost tables (`audit_summary*.json`, `roi*.md`, `baseline*.json`, `tuned.json`,
-`closed/`, `v2_closed/`), `notebooks/` the four Kaggle notebooks (the last, `lexsi_seed2_repair.ipynb`, has not been run), `data/final/` (v1) and `data/final_v2/` (v2) the splits, plus the raw
+`closed/`, `v2_closed/`), `notebooks/` the four Kaggle notebooks, `data/final/` (v1) and `data/final_v2/` (v2) the splits, plus the raw
 generated files and logs. Hugging Face: the adapters, logs and metrics
 ([`iamvisheshsrivastava/lexsi-tiny-aya-extraction-lora`](https://huggingface.co/iamvisheshsrivastava/lexsi-tiny-aya-extraction-lora)) and the datasets
 [`lexsi-extraction-data`](https://huggingface.co/datasets/iamvisheshsrivastava/lexsi-extraction-data) (v1) and

@@ -1,0 +1,45 @@
+{
+  "n_test_documents": 120,
+  "runs": {
+    "untuned_full": {
+      "is_json": 0.9917,
+      "json_schema_valid": 0.9417,
+      "field_f1": 0.7025,
+      "field_precision": 0.7025,
+      "field_recall": 0.7025
+    },
+    "tuned_seed42": {
+      "is_json": 1.0,
+      "json_schema_valid": 0.9333,
+      "field_f1": 0.8283,
+      "field_precision": 0.8283,
+      "field_recall": 0.8283
+    },
+    "tuned_seed42_repaired": {
+      "is_json": 1.0,
+      "json_schema_valid": 0.9917,
+      "field_f1": 0.8292,
+      "field_precision": 0.8292,
+      "field_recall": 0.8292
+    },
+    "tuned_seed7": {
+      "is_json": 1.0,
+      "json_schema_valid": 0.9333,
+      "field_f1": 0.8292,
+      "field_precision": 0.8292,
+      "field_recall": 0.8292
+    },
+    "tuned_seed7_repaired": {
+      "is_json": 1.0,
+      "json_schema_valid": 1.0,
+      "field_f1": 0.8308,
+      "field_precision": 0.8308,
+      "field_recall": 0.8308
+    }
+  },
+  "comparison": {
+    "before": "untuned_full",
+    "after": "tuned_seed7",
+    "summary": "Comparison: 128e3616a8ed2382 (baseline) -> 02d351f08226eda6 (candidate)\n  per-metric (baseline -> candidate | absolute delta | relative %):\n    field_f1: 0.7025 -> 0.8292  delta=+0.1267 (+18.0% rel)  (n=120->120, std=0.1640->0.1114)\n    field_precision: 0.7025 -> 0.8292  delta=+0.1267 (+18.0% rel)  (n=120->120, std=0.1640->0.1114)\n    field_recall: 0.7025 -> 0.8292  delta=+0.1267 (+18.0% rel)  (n=120->120, std=0.1640->0.1114)\n    is_json: 0.9917 -> 1.0000  delta=+0.0083 (+0.8% rel)  (n=120->120, std=0.0909->0.0000)\n    json_schema_valid: 0.9417 -> 0.9333  delta=-0.0083 (-0.9% rel)  (n=120->120, std=0.2344->0.2494)\n  samples: 0 went correct->wrong, 1 went wrong->correct\n  model: precomputed -> precomputed (no measurable size)"
+  }
+}

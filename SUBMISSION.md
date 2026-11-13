@@ -21,7 +21,7 @@ amounts, local date formats, implied urgency, missing fields), with automatic gr
 documents after CuratorKIT. The test set has 120 documents, 30 per language, checked for near-duplicates against the training data. On
 this test set, the untuned model with the full prompt scores field F1 0.70 (94% schema-valid). The fine-tuned model, given only the
 one-line prompt, scores **0.83** and returns parseable JSON for 100% of documents (93% schema-valid; exact match 15% against 3%). The
-per-document F1 gain is +0.08 with a 95% bootstrap interval of +0.06 to +0.11. Four hosted models with the full prompt (Claude Haiku 5.5,
+per-document F1 gain is +0.08 with a 95% bootstrap interval of +0.06 to +0.11. A second training seed gives the same score (0.83), and a constrained-choice repair that lets the model pick among the allowed values wherever it wrote an invalid one raises strict-schema validity from 93% to 99-100% without changing F1. Four hosted models with the full prompt (Claude Haiku 5.5,
 Gemini 2.5 Flash-Lite, Command A, GPT-5.4 nano) score 0.82 to 0.85, so the 3.35B fine-tuned model matches them on field F1 but is weaker on
 strict schema validity; Claude Haiku is slightly ahead in a paired comparison (+0.02).
 
@@ -29,8 +29,7 @@ ROI: hosted cost per 1,000 documents (billed) is $0.07 to $1.75. Self-hosting th
 plain Hugging Face generation, about $0.19 per 1,000 documents at an assumed $0.35 per GPU hour (GPU prices are assumptions; we did not
 rent a GPU). That is the same range as the cheap hosted models, so the case for self-hosting here is privacy and control, not price.
 
-Limits: synthetic, model-written, unchecked labels from two teachers; one training run per round; strict-schema failures (mostly an invalid
-issue category) remain; no throughput-optimised server was tested. Code, data, adapters, logs and results are public.
+Limits: synthetic, model-written, unchecked labels from two teachers; two seeds for round 2 and one run for round 1; the repair fixes validity, not accuracy; no throughput-optimised server was tested. Code, data, adapters, logs and results are public.
 
 ## Links
 

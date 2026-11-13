@@ -36,7 +36,7 @@ The round-1 test set was too small and too easy: many documents contained the fi
 | Command A, full prompt (hosted) | 100% | 100% | 0.83 |
 | GPT-5.4 nano, full prompt (hosted) | 100% | 98% | 0.82 |
 
-On this harder test the fine-tuned model clearly beats the same model with the full prompt: +0.08 per-document F1, 95% bootstrap interval +0.06 to +0.11. It lands in the same F1 range as four hosted models, but its strict-schema validity is lower (93% against 98 to 100%): seven of its eight failures are an `issue_category` outside the allowed list.
+On this harder test the fine-tuned model (and a second training seed, which scores the same) clearly beats the same model with the full prompt: +0.08 per-document F1, 95% bootstrap interval +0.06 to +0.11. It lands in the same F1 range as four hosted models, but its strict-schema validity is lower (93% against 98 to 100%): seven of its eight failures are an `issue_category` outside the allowed list. A small repair step fixes that: where the model wrote a value that is not allowed, it picks the allowed value it finds most likely instead. Strict-schema validity rises from 93% to 99-100% and F1 does not change, so the repair makes the output usable but not more accurate.
 
 ## Cost
 
@@ -45,7 +45,7 @@ Hosted models cost $0.07 to $1.75 per 1,000 documents (billed). The fine-tuned m
 ## What to keep in mind
 
 - All text and labels are model-written. We read a sample of 32 test documents against their labels: 8 had at least one clearly wrong or unsupported field (2.5% of fields), and the reader was Claude, not a human. Scores are measured against these labels, so they are a ceiling-limited estimate.
-- One training run per round; the interval above covers test-set sampling only.
+- Two training seeds for round 2, one run for round 1; the interval above covers test-set sampling only, and two seeds are not a variance estimate.
 - The 24-document and 120-document results disagree on whether fine-tuning beats prompting. Data, test set and training length all changed between rounds, so we cannot say which change mattered.
 - No throughput-optimised server was tested, so the cost numbers are conservative for self-hosting.
 
